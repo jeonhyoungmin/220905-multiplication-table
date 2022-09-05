@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* #root > div {
+      width: 50vw;
+      height: 50vh;
+      background-color: aqua;
+    }
+    #root > div > div:nth-child(1){
+      width: 50vw;
+      height: 5vh;
+      border: 1px solid black;
+    }
+    #root > div > div:nth-child(2){
+      display: flex;
+    }
+    #root > div > div:nth-child(2) > div:nth-child(1){
+      width: 5vw;
+      height: 45vh;
+      border: 1px solid black;
+    }
+    #root > div > div:nth-child(2) > div:nth-child(2){
+      width: 45vw;
+      height: 45vh;
+      border: 1px solid black; */
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script>
+    let dan = 0;
+    let gugudan = [];
+    let multiplyCounter = 0;
+    function createTable(nDan){
+      let table = document.createElement('div')
+      let ul = document.createElement('ul')
+      root.appendChild(table)
+      table.appendChild(ul)
+      ul.style.listStyleType = 'none'
+      ul.style.display = 'display'
+      ul.style.justifyContent = 'space-between'
+      ul.style.textAlign = 'center'
+      
+      for(let i = 0; i < nDan; i++){
+        gugudan[i] = []
+      }
+      for(let i = 0; nDan.length + 1 ; i++){
+        dan++;
+        for(let j = 1; j < gugudan.length+1;j++){
+          multiplyCounter++;
+          guguda[i][j-1] = dan * [j]
+        }
+      }
+      let count = 0;
+      for(let i = 0; i < nDan+1; i++){
+        let li = document.createElement('li')
+        for(let i = 0; i < nDan+1; )
+        li.textContent = gugudan[count][i]
+        count++
+      }
+    }
+    createTable(9)
+
+    
+  </script>
+</body>
+</html>

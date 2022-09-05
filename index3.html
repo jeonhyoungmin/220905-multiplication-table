@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root {
+      width: 100vw;
+      height: 140vh;
+      background-color: #333;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById('root')
+
+    function googoodan(dan, limit){
+      let resultArray = [];
+      for(let i = 1; i <= limit; i++){
+        resultArray.push(dan*i)
+      }
+      return resultArray
+    }
+    // googoodan(9,9)
+    // console.log(googoodan(9,9))
+    // let a = googoodan(9,9)[0]
+    // console.log(a)
+
+    let a = []
+    function googoodanAll(dan){
+      for(let i = 0; i < dan; i++){
+        a[i] = googoodan(i,10)
+      }
+      return a
+    }
+
+    googoodanAll(10)
+    console.log(a)
+    
+    let value = 0;
+    function googoodanTable(count){
+      googoodanAll(count+1)
+      let danSizeUp = 1;
+      for(let j = 0; j < count+1 ; j++){
+        danSizeUp++;
+        for(let i = 1; i<count+1; i++){
+          let container = document.createElement('div')
+          console.log(typeof(a[danSizeUp-1][i-1]))
+          if(typeof(a[danSizeUp-1][i-1]) === undefined){
+            break
+          } else {
+            container.textContent = `${danSizeUp-1} x ${i} = ${a[danSizeUp-1][i-1]}`
+            container.style.width = '7vw'
+            container.style.height = '7vw'
+            container.style.border = '1px solid pink'
+            container. style.borderRadius = '100%'
+            container.style.display = 'flex'
+            container.style.justifyContent = 'center'
+            container.style.alignItems = 'center'
+            container.style.margin = '10px'
+            root.appendChild(container)
+            value ++;
+          }
+        }
+      }
+      return value
+    }
+
+
+    googoodanTable(9)
+    console.log(value)
+  </script>
+</body>
+</html>

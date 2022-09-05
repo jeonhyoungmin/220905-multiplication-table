@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #root > table {
+      width: 50vw;
+      height: 50vw;
+      background-color: aqua;
+    }
+    #root > table > th {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <table>
+      <th></th>
+      <th>1</th>
+      <th style="border: 1px solid black;">2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    let dan = 0;
+    let gugudan = [];
+    for(let i = 0; i < 9; i++){
+      gugudan[i] = []
+    }
+    console.log(gugudan)
+    for(let i = 0; i<gugudan.length;i++){
+      dan++;
+      for(let j = 1; j <10 ; j++){
+        gugudan[i][j-1] = dan * [j]
+      }
+    }
+    console.log(gugudan)
+
+    // const table = document.createElement('table')
+    // root.appendChild(table)
+
+    
+  </script>
+</body>
+</html>
