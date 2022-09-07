@@ -14,7 +14,7 @@
     #root {
       width: 100vw;
       height: 140vh;
-      background-color: #333;
+      /* background-color: #333; */
       /* display: flex;
       justify-content: center;
       align-items: center; */
@@ -60,10 +60,10 @@
         danSizeUp++;
         for(let i = 1; i<count+1; i++){
           let container = document.createElement('div')
-          console.log(typeof(a[danSizeUp-1][i-1]))
-          if(typeof(a[danSizeUp-1][i-1]) === undefined){
-            break
-          } else {
+          // console.log(typeof(a[danSizeUp-1][i-1]))
+          // if(typeof(a[danSizeUp-1][i-1]) === undefined){
+            // break
+          // } else {
             container.textContent = `${danSizeUp-1} x ${i} = ${a[danSizeUp-1][i-1]}`
             container.style.width = '7vw'
             container.style.height = '7vw'
@@ -75,7 +75,7 @@
             container.style.margin = '10px'
             root.appendChild(container)
             value ++;
-          }
+          // }
         }
       }
       return value

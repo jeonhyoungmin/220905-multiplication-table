@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const body = document.body
+    body.style.margin = 0;
+    body.style.padding = 0;
+    body.style.listStyleType = 'none';
+    
+    const root = document.getElementById("root")
+    root.style.width = "100vw";
+    root.style.height = "100vh";
+    root.style.backgroundColor = '#333';
+
+    
+    function createTable(dan, limit, tableNumContainerProps, tableNumProps, googoodanTableProps){
+      let danArr = []
+      function googoodan(dan, limit){
+        for(let i = 1; i <= limit ; i++){
+          danArr.push(dan* i)
+          // 투입된 dan에 대해서 limit까지 곱하기
+        }
+        return danArr
+      }
+      googoodan(dan,limit)
+
+      let tableNumContainer = document.createElement('div')
+      tableNumContainer.setAttribute("id", "tableNumContainer")
+      let googoodanTableContainer = document.createElement('div')
+      for(const cssValue in tableNumContainerProps){
+        tableNumContainer.style[cssValue] = tableNumContainerProps[cssValue]
+      }
+
+      for(let i = 0; i< dan ; i++){
+        let tableNum = document.createElement('div');
+        tableNum.textContent = `${i+1}단`
+        tableNum.style.width = '10vw'
+        tableNum.id = `Num-${i+1}`
+        for(const cssValue in tableNumProps){
+          tableNum.style[cssValue] = tableNumProps[cssValue]
+        }
+        tableNumContainer.appendChild(tableNum)
+      }
+
+      for(let i = 0; i < limit; i++){
+        let googoodanTable = document.createElement('div');
+        googoodanTable.id = `googoodan-${i+1}`
+        googoodanTable.textContent = dan + 'x' +  (i+1) + '=' + danArr[i]
+        googoodanTableContainer.appendChild(googoodanTable)
+        for(const cssValue in googoodanTableProps){
+          googoodanTable.style[cssValue] = googoodanTableProps[cssValue]
+        }
+      }
+      
+      root.appendChild(tableNumContainer)
+      root.appendChild(googoodanTableContainer)
+
+
+    }
+
+    let TableOne = createTable(1, 9, {
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: "100vw",
+      height: "10vh",
+      backgroundColor: "pink"
+    }, {
+      height: "10vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    }, {
+      width: "100vw",
+      height: "10vh",
+      backgroundColor: "yellow",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    })
+    const tableNumContainer = document.getElementById("tableNumContainer")
+    console.log(tableNumContainer)
+
+    let count = 0;
+    tableNumContainer.addEventListener('click', function(){
+      count ++;
+      if(count === 10){
+        count = 0
+      } else {
+        createTable(count, 9, {
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: "100vw",
+        height: "10vh",
+        backgroundColor: "pink"
+      }, {
+        height: "10vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }, {
+        width: "100vw",
+        height: "10vh",
+        backgroundColor: "yellow",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      })
+      }
+    })
+    </script>
+</body>
+</html>
